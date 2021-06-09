@@ -1,9 +1,9 @@
 CPP = g++
-CPPFLAGS += -ggdb -O0 -std=c++17 -fPIE
+CPPFLAGS += -ggdb -O0 -std=c++17 -fPIE -fpermissive
 LIBDIR = -L./third_party/pe-parse/pe-parser-library -L./third_party/libdwarf/libdwarf
 INCLUDEDIR = -Ithird_party/spii/include -I./ -Ithird_party/spii/thirdparty/Eigen
 LIBS = -lparseAPI -linstructionAPI -lsymtabAPI -lsymLite -ldynDwarf -ldynElf \
-       -lcommon -lelf -ldwarf -lpthread -lpe-parser-library -lspii -lgflags
+       -lcommon -lelf -ldwarf -lpthread -lpe-parse -lspii -lgflags
 
 OBJ = build/util.o build/util_with_dyninst.o build/disassembly.o \
       build/extractimmediate.o \

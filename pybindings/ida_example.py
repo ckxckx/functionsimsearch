@@ -140,8 +140,8 @@ def save_function(function_address=None):
     function_address = here()
   flowgraph = get_flowgraph_from(function_address)
   branching_nodes = flowgraph.number_of_branching_nodes()
-  if branching_nodes < 5:
-    print("%lx: has only %d (< 5) branching nodes, ignoring." % (
+  if branching_nodes < 4:
+    print("%lx: has only %d (< 4) branching nodes, ignoring." % (
       function_address,
       branching_nodes))
     return True
@@ -199,18 +199,23 @@ def print_results(executable_id, address, hashes, results, minimum=0):
   if print_separator:
     print("--------------------------------------")
 
-def load_function(function_address = None, minimum=0, minsize=6):
+def load_function(function_address = None, minimum=0, minsize=5):
   """
   Search for a function in the search index, and output the best matches to the
   log window.
   """
+  print("ckx:load_function called")
+  print(function_address)
   search_index
   meta_data
   if function_address == None:
     function_address = here()
+  print(function_address)
   hashes, results = search_function(function_address, minimum, minsize)
   executable_id = long(ida_nalt.retrieve_input_file_sha256()[0:16], 16)
   address = long(idaapi.get_func(function_address).start_ea)
+  print(results)
+  print(hashes)
   if len(results) == 0 and hashes:
     print("%lx:%lx %lx-%lx No search results" %
       (executable_id, address, hashes[0], hashes[1]))

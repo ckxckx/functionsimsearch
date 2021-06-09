@@ -12,9 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "third_party/pe-parse/pe-parser-library/include/parser-library/parse.h"
-#include "third_party/pe-parse/pe-parser-library/include/parser-library/nt-headers.h"
 
+//#include "third_party/pe-parse/pe-parser-library/include/parser-library/parse.h"
+#include "third_party/pe-parse/pe-parser-library/include/pe-parse/parse.h"
+//#include "third_party/pe-parse/pe-parser-library/include/parser-library/nt-headers.h"
+#include "third_party/pe-parse/pe-parser-library/include/pe-parse/nt-headers.h"
 
 #include "disassembly/pecodesource.hpp"
 
